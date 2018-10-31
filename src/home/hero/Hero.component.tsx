@@ -11,7 +11,7 @@ const HeroContainer = styled('div')`
   background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
     url(${hero});
   background-attachment: fixed;
-  background-position: center;
+  background-position: 50% 80%;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;

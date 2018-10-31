@@ -3,6 +3,7 @@ import { Typography } from '@rmwc/typography';
 
 import * as React from 'react';
 import styled from 'styled-components';
+import { device } from '../../utils/devices';
 
 const ContactContainer = styled('div')`
   background-color: #374e6b;
@@ -12,6 +13,22 @@ const ContactContainer = styled('div')`
   align-items: center;
   justify-content: center;
 `;
+
+const ContactContent = styled('div')`
+  width: 100%;
+  @media ${device.mobileL} {
+    width: 70%;
+  }
+`;
+
+const AddressText = styled(Typography)`
+  margin: 0;
+  max-width: 320px;
+`;
+
+const ContactHeader = styled.div`
+  margin: 24px;
+`
 
 const ContactText = styled(Typography)`
   margin: 0;
@@ -28,15 +45,35 @@ class ContactComponent extends React.Component {
         <Typography use="headline4" theme="on-primary" tag="h2">
           Contact Us
         </Typography>
-        <div>
-          <Typography use="subtitle2" theme="on-primary" tag="p">
-            Desa KL Enterprise Sdn Bhd
-          </Typography>
-          <Typography use="body1" theme="on-primary" tag="p">
-            Lot 2188, Industrial Estate Selangor Taming Jaya, Jalan Taming 2,
-            Taming Jaya Industry Park, 43300 Seri Kembangan, Selangor
-          </Typography>
+
+        <ContactContent>
+          <ContactHeader>
+            <ContactText use="headline6" theme="secondary" tag="h2">
+              BENSON LIM
+            </ContactText>
+            <a href="tel:601-6660-5511">
+              <ContactText use="subtitle1" theme="secondary" tag="p">
+                +601 6660 5511
+              </ContactText>
+            </a>
+          </ContactHeader>
           <Grid>
+            <GridCell span={12}>
+              <Typography use="headline6" theme="on-primary" tag="h2">
+                Ebony Houzz Sdn Bhd
+              </Typography>
+            </GridCell>
+            <GridCell span={2}>
+              <ContactText use="body1" theme="on-primary" tag="p">
+                Factory:
+              </ContactText>
+            </GridCell>
+            <GridCell span={10}>
+              <AddressText use="body1" theme="on-primary" tag="p">
+                Lot 2188, Industrial Estate Selangor Taming Jaya, Jalan Taming
+                2, Taming Jaya Industry Park, 43300 Seri Kembangan, Selangor
+              </AddressText>
+            </GridCell>
             <GridCell span={2}>
               <ContactText use="body1" theme="on-primary" tag="p">
                 Email:
@@ -78,7 +115,7 @@ class ContactComponent extends React.Component {
               </a>
             </GridCell>
           </Grid>
-        </div>
+        </ContactContent>
 
         <Map
           width="600"
@@ -89,7 +126,5 @@ class ContactComponent extends React.Component {
     );
   }
 }
-
-// src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7977.62302853802!2d103.8362726329516!3d1.287191362130713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1975b6f8b1b3%3A0xa896dd8474135315!2s151+Chin+Swee+Rd%2C+Singapore+169876!5e0!3m2!1sen!2smy!4v1472466768621"
 
 export default ContactComponent;
