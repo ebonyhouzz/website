@@ -122,7 +122,7 @@ class ProductComponent extends React.Component {
     // const { productRef } = this.props;
     const { selectedDoors } = this.state;
     return (
-      <ProductContainer>
+      <ProductContainer id="product">
         <Typography use="headline4" tag="h2">OUR PRODUCT</Typography>
         <img src={logo} alt="logo" width="320" />
         <CategoryContainer>

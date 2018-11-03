@@ -119,7 +119,7 @@ class HeroComponent extends React.Component {
         <HeroContainer>
           <img src={logo} width="320" alt="logo" />
         </HeroContainer>
-        <AboutContainer>
+        <AboutContainer id="about">
           <AboutBorder>
             <AboutContent>
               <AboutTitle use="headline5">ABOUT EBÖNY HÖUZZ</AboutTitle>
@@ -139,7 +139,7 @@ class HeroComponent extends React.Component {
             </AboutContent>
           </AboutBorder>
         </AboutContainer>
-        <VisionContainer>
+        <VisionContainer id="vision">
           <VisionTitle use="headline5" theme="on-primary">
             OUR VISION
           </VisionTitle>

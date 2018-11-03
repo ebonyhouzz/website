@@ -8,14 +8,20 @@ import {
 import { Typography } from '@rmwc/typography';
 
 import * as React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import styled from 'styled-components';
 import Home from './home/Home.component';
 import logo from './logo-light.svg';
 import { device } from './utils/devices';
 
 const TransparentTopAppBar = styled(TopAppBar)`
-  background: transparent;
+  background: rgba(0,0,0,0.25);
 `;
+
+const MenuLink = styled(Link)`
+  text-decoration: none;
+`
 
 const MenuSection = styled(TopAppBarSection)`
   display: none;
@@ -33,47 +39,41 @@ const Footer = styled('div')`
 `;
 
 class App extends React.Component {
-  // private visionRef: React.RefObject<{}>;
-  // private productRef: React.RefObject<{}>;
-  // private contactRef: React.RefObject<{}>;
-
-  // constructor(props: React.Props<{}>) {
-  //   super(props);
-  //   this.visionRef = React.createRef();
-  //   this.productRef = React.createRef();
-  //   this.contactRef = React.createRef();
-  // }
-
   public render() {
     return (
-      <React.Fragment>
-        <TransparentTopAppBar>
-          <TopAppBarRow>
-            <TopAppBarSection alignStart={true}>
-              <TopAppBarTitle>
-                <img src={logo} alt="logo" height="48" />
-              </TopAppBarTitle>
-            </TopAppBarSection>
-            <MenuSection alignEnd={true}>
-              <Button theme="text-primary-on-dark">About</Button>
-              <Button theme="text-primary-on-dark">Vision</Button>
-              <Button theme="text-primary-on-dark">Product</Button>
-              <Button theme="text-primary-on-dark">Contact</Button>
-            </MenuSection>
-          </TopAppBarRow>
-        </TransparentTopAppBar>
-        {/* <Home
-          visionRef={this.visionRef}
-          productRef={this.productRef}
-          contactRef={this.contactRef}
-        /> */}
-        <Home />
-        <Footer>
-          <Typography use="caption" theme="on-primary">
-            © 2017 EBONY DÖRR. ALL RIGHTS RESERVED.
-          </Typography>
-        </Footer>
-      </React.Fragment>
+      <Router>
+        <>
+          <TransparentTopAppBar>
+            <TopAppBarRow>
+              <TopAppBarSection alignStart={true}>
+                <TopAppBarTitle>
+                  <img src={logo} alt="logo" height="48" />
+                </TopAppBarTitle>
+              </TopAppBarSection>
+              <MenuSection alignEnd={true}>
+                <MenuLink smooth={true} to="/#about">
+                  <Button theme="text-primary-on-dark">About</Button>
+                </MenuLink>
+                <MenuLink smooth={true} to="/#vision">
+                  <Button theme="text-primary-on-dark">Vision</Button>
+                </MenuLink>
+                <MenuLink smooth={true} to="/#product">
+                  <Button theme="text-primary-on-dark">Product</Button>
+                </MenuLink>
+                <MenuLink smooth={true} to="/#contact">
+                  <Button theme="text-primary-on-dark">Contact</Button>
+                </MenuLink>
+              </MenuSection>
+            </TopAppBarRow>
+          </TransparentTopAppBar>
+          <Home />
+          <Footer>
+            <Typography use="caption" theme="on-primary">
+              © 2017 EBONY DÖRR. ALL RIGHTS RESERVED.
+            </Typography>
+          </Footer>
+        </>
+      </Router>
     );
   }
 }

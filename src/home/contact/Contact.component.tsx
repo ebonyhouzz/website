@@ -41,7 +41,7 @@ const Map = styled('iframe')`
 class ContactComponent extends React.Component {
   public render() {
     return (
-      <ContactContainer>
+      <ContactContainer id="contact">
         <Typography use="headline4" theme="on-primary" tag="h2">
           Contact Us
         </Typography>
