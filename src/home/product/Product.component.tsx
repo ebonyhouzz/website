@@ -11,6 +11,7 @@ import { GridList } from '@rmwc/grid-list';
 import { Typography } from '@rmwc/typography';
 
 import * as React from 'react';
+import { Subscription } from 'rxjs';
 import styled from 'styled-components';
 import logo from '../../logo-dark-subtitle.svg';
 import ProductService from './Product.service';
@@ -66,6 +67,8 @@ class ProductComponent extends React.Component {
     selectedDoors: []
   };
 
+  private productSubscription: Subscription;
+
   private categories = [
     { index: 0, name: 'ALL', type: 'all' },
     { index: 1, name: 'NATURAL Series', type: 'natural' },
@@ -75,8 +78,13 @@ class ProductComponent extends React.Component {
 
   public async componentDidMount() {
     const productService = new ProductService();
-    const doors = await productService.getDoors();
-    this.setState({ doors, selectedDoors: doors });
+    this.productSubscription = productService
+      .getDoors()
+      .subscribe(doors => this.setState({ doors, selectedDoors: doors }));
+  }
+
+  public componentWillUnmount(){
+    this.productSubscription.unsubscribe();
   }
 
   public handleSelectType = (type: string) => () => {
@@ -123,7 +131,9 @@ class ProductComponent extends React.Component {
     const { selectedDoors } = this.state;
     return (
       <ProductContainer id="product">
-        <Typography use="headline4" tag="h2">OUR PRODUCT</Typography>
+        <Typography use="headline4" tag="h2">
+          OUR PRODUCT
+        </Typography>
         <img src={logo} alt="logo" width="320" />
         <CategoryContainer>
           {this.categories.map(category => (

@@ -1,6 +1,8 @@
 import * as firebase from 'firebase';
 import 'firebase/firestore';
 
+import { Observable } from 'rxjs';
+
 class ProductService {
   private db: firebase.firestore.Firestore;
 
@@ -25,11 +27,14 @@ class ProductService {
     });
   }
 
-  public async getDoors(): Promise<firebase.firestore.DocumentData> {
-    const querySnapshot = await this.db
-      .collection('ebonyhouzz/products/doors')
-      .get();
-    return querySnapshot.docs.map(doc => doc.data());
+  public getDoors(): Observable<firebase.firestore.DocumentData> {
+    return Observable.create((observer: any) => {
+      this.db
+        .collection('ebonyhouzz/products/doors')
+        .onSnapshot(
+          querySnapshot => observer.next(querySnapshot.docs.map(doc => doc.data()))
+        );
+    });
   }
 }
 
