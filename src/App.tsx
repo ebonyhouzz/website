@@ -16,12 +16,12 @@ import logo from './logo-light.svg';
 import { device } from './utils/devices';
 
 const TransparentTopAppBar = styled(TopAppBar)`
-  background: rgba(0,0,0,0.25);
+  background: rgba(0, 0, 0, 0.25);
 `;
 
 const MenuLink = styled(Link)`
   text-decoration: none;
-`
+`;
 
 const MenuSection = styled(TopAppBarSection)`
   display: none;
@@ -38,6 +38,12 @@ const Footer = styled('div')`
   background-color: #2e3f57;
 `;
 
+const MenuButton = ({ to, title }: { to: string; title: string }) => (
+  <MenuLink smooth={true} to={to}>
+    <Button theme="text-primary-on-dark">{title}</Button>
+  </MenuLink>
+);
+
 class App extends React.Component {
   public render() {
     return (
@@ -51,18 +57,10 @@ class App extends React.Component {
                 </TopAppBarTitle>
               </TopAppBarSection>
               <MenuSection alignEnd={true}>
-                <MenuLink smooth={true} to="/#about">
-                  <Button theme="text-primary-on-dark">About</Button>
-                </MenuLink>
-                <MenuLink smooth={true} to="/#vision">
-                  <Button theme="text-primary-on-dark">Vision</Button>
-                </MenuLink>
-                <MenuLink smooth={true} to="/#product">
-                  <Button theme="text-primary-on-dark">Product</Button>
-                </MenuLink>
-                <MenuLink smooth={true} to="/#contact">
-                  <Button theme="text-primary-on-dark">Contact</Button>
-                </MenuLink>
+                <MenuButton to="/#about" title="About" />
+                <MenuButton to="/#vision" title="Vision" />
+                <MenuButton to="/#product" title="Product" />
+                <MenuButton to="/#contact" title="Contact" />
               </MenuSection>
             </TopAppBarRow>
           </TransparentTopAppBar>
