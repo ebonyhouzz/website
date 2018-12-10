@@ -17,7 +17,10 @@ const HeroContainer = styled('div')`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 600px;
+  min-height: 220px;
+  @media ${device.mobileL} {
+    min-height: 600px;
+  }
 `;
 
 const AboutContainer = styled('div')`
@@ -27,20 +30,20 @@ const AboutContainer = styled('div')`
   display: flex;
   flex-direction: column;
   position: relative;
-  min-height: 320px;
+  min-height: 420px;
 `;
 
 const AboutBorder = styled('div')`
   background-color: white;
   top: -100px;
   max-width: 100%;
-  margin: 32px;
   padding: 16px;
   @media ${device.mobileL} {
     margin: 0;
-    max-width: 540px;
+    max-width: 640px;
     position: absolute;
     top: -128px;
+    margin: 32px;
   }
 `;
 
@@ -59,7 +62,6 @@ const AboutTitle = styled(Typography)`
 
 const AboutDescription = styled(Typography)`
   display: block;
-  text-align: center;
   margin-bottom: 8px;
 `;
 
@@ -69,6 +71,10 @@ const VisionContainer = styled('div')`
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding-top: 32px;
+  @media ${device.mobileL} {
+    padding-top: 0;
+  }
 `;
 
 const VisionTitle = styled(Typography)`
@@ -122,32 +128,40 @@ class HeroComponent extends React.Component {
         <AboutContainer id="about">
           <AboutBorder>
             <AboutContent>
-              <AboutTitle use="headline5">ABOUT EBÖNY HÖUZZ</AboutTitle>
+              <AboutTitle use="headline5">About EBONY Dörr</AboutTitle>
               <AboutDescription use="subtitle1">
-                The name Eböny is derived from one of the most expensive species
-                of timber in Africa and its veneer has been applied in the
-                interior design of many of the worlds most prestigious and
-                luxurious spaces. Since 2000, our professional and creative team
-                has been adhering to strict principles dedicated to designing
-                spaces and forms that are most important to you.
+                At EBONY Dörr our aspiration to custom wood products is
+                represented by Ebony, one of the most priced species of wood
+                known for its durability, unique & opulent wood grains. It is
+                among the most demanded but rare material for fine wood products
+                and interior design of many luxurious spaces.
               </AboutDescription>
               <AboutDescription use="subtitle1">
-                Bespoke Dörrs blend specialist knowledge with the finest
-                materials and inimitable creative flair to realise the perfect
-                product that is both unique and personal.
+                Since the year 2000, our professional and creative team is
+                dedicated to designing spaces and forms that are most important
+                to you and EBONY Dörr is all about filling that missing piece
+                within your home, the little finishing details which ultimately
+                defines durability and luxury.
+              </AboutDescription>
+              <AboutDescription use="subtitle1">
+                EBONY Dörr brings to live, custom door of your designs or just
+                select from our many individualized door designs, that best suit
+                your personal styles. We are very certain that our talented team
+                of traditional craftsman at EBONY Dörr are able to realise even
+                the most complexed design of doors and deliver a unique
+                centerpiece for your home, in the most professional manner.
               </AboutDescription>
             </AboutContent>
           </AboutBorder>
         </AboutContainer>
         <VisionContainer id="vision">
           <VisionTitle use="headline5" theme="on-primary">
-            OUR VISION
+            OUR PHILOSOPHY
           </VisionTitle>
           <VisionDescription use="subtitle1" theme="on-primary">
-            No matter the size of the project, the goal is ultimately the same:
-            to make your personal style shine. We provide new inspiration and
-            ideas, while incorporating elements of your liking into every
-            concept we present.
+            Creating access for anyone to fulfil their design dreams. Quality
+            and a well crafted wood product is our transcendental desires.
+            <br />“ We customise your dreams “
           </VisionDescription>
         </VisionContainer>
         <QuoteContainer>

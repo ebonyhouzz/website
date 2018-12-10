@@ -71,9 +71,9 @@ class ProductComponent extends React.Component {
 
   private categories = [
     { index: 0, name: 'ALL', type: 'all' },
-    { index: 1, name: 'NATURAL Series', type: 'natural' },
-    { index: 2, name: 'VENEER Series', type: 'veneer' },
-    { index: 3, name: 'PAINTED Series', type: 'painted' }
+    { index: 1, name: 'Veneer Series', type: 'veneer' },
+    { index: 2, name: 'Solid Timber Series', type: 'timber' },
+    // { index: 3, name: 'PAINTED Series', type: 'painted' }
   ];
 
   public async componentDidMount() {
@@ -131,9 +131,6 @@ class ProductComponent extends React.Component {
     const { selectedDoors } = this.state;
     return (
       <ProductContainer id="product">
-        <Typography use="headline4" tag="h2">
-          OUR PRODUCT
-        </Typography>
         <img src={logo} alt="logo" width="320" />
         <CategoryContainer>
           {this.categories.map(category => (
