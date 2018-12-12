@@ -31,8 +31,9 @@ class ProductService {
     return Observable.create((observer: any) => {
       this.db
         .collection('ebonyhouzz/products/doors')
-        .onSnapshot(
-          querySnapshot => observer.next(querySnapshot.docs.map(doc => doc.data()))
+        .orderBy('name')
+        .onSnapshot(querySnapshot =>
+          observer.next(querySnapshot.docs.map(doc => doc.data()))
         );
     });
   }

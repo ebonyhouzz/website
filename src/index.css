@@ -11,3 +11,9 @@ body {
 .mdc-layout-grid__inner {
   grid-gap: 0 !important;
 }
+
+@media (min-width: 592px) {
+  .mdc-dialog .mdc-dialog__container {
+    max-width: 720px;
+  }
+}
