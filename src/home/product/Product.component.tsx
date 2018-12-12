@@ -14,7 +14,9 @@ import * as React from 'react';
 import { Subscription } from 'rxjs';
 import styled from 'styled-components';
 import logo from '../../logo-dark-subtitle.svg';
+import masterCard from './master_card.svg';
 import ProductService from './Product.service';
+import visa from './visa.svg';
 
 const ProductContainer = styled.div`
   padding: 32px;
@@ -59,6 +61,26 @@ const DoorTitle = styled(Typography)`
 
 const DoorDescription = styled(Typography)`
   margin: 0;
+`;
+
+const CreditCardContainer = styled('div')`
+  display: flex;
+  justify-content: space-around;
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-bottom: 16px;
+`;
+
+const PdfLink = styled('a')`
+  text-decoration: none;
+`;
+
+const CatalogueContainer = styled(Button)`
+  display: flex;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 class ProductComponent extends React.Component {
@@ -152,6 +174,25 @@ class ProductComponent extends React.Component {
           Select from our series of designs or send us your design to get a free
           quotation.
         </Typography>
+
+        <div>
+          <Typography use="headline6" tag="p">
+            We accept Visa and MasterCard
+          </Typography>
+          <CreditCardContainer>
+            <img src={visa} alt="Visa"/>
+            <img src={masterCard} alt="Master Card"/>
+          </CreditCardContainer>
+          <PdfLink href="https://firebasestorage.googleapis.com/v0/b/ebonyhouzz.appspot.com/o/EBONY%20Do%CC%88rr%20catalogue.pdf?alt=media&token=a68223d7-3bfb-4084-a93e-0ff847bef447">
+            <CatalogueContainer theme="text-primary-on-background">
+              <i className="material-icons">
+                picture_as_pdf
+              </i>
+              &nbsp;
+              Ebony Dörr Catalogue
+            </CatalogueContainer>
+          </PdfLink>
+        </div>
       </ProductContainer>
     );
   }

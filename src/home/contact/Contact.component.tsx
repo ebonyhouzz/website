@@ -70,8 +70,10 @@ class ContactComponent extends React.Component {
             </GridCell>
             <GridCell span={10}>
               <AddressText use="body1" theme="on-primary" tag="p">
-                Lot 2188, Industrial Estate Selangor Taming Jaya, Jalan Taming
-                2, Taming Jaya Industry Park, 43300 Seri Kembangan, Selangor
+                Lot 2188, Industrial Estate Selangor Taming Jaya,
+                Jalan Taming 2, Taming Jaya Industry Park,
+                43300 Balakong, Selangor Darul Ehsan,
+                Malaysia.
               </AddressText>
             </GridCell>
             <GridCell span={2}>

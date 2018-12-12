@@ -38,8 +38,8 @@ const AboutBorder = styled('div')`
   top: -100px;
   max-width: 100%;
   padding: 16px;
+  margin: 0;
   @media ${device.mobileL} {
-    margin: 0;
     max-width: 640px;
     position: absolute;
     top: -128px;
@@ -72,9 +72,6 @@ const VisionContainer = styled('div')`
   align-items: center;
   flex-direction: column;
   padding-top: 32px;
-  @media ${device.mobileL} {
-    padding-top: 0;
-  }
 `;
 
 const VisionTitle = styled(Typography)`
