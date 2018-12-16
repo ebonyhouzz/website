@@ -3,7 +3,7 @@ import { Typography } from '@rmwc/typography';
 
 import * as React from 'react';
 import styled from 'styled-components';
-import { device } from '../../utils/devices';
+// import { device } from '../../utils/devices';
 
 const ContactContainer = styled('div')`
   background-color: #374e6b;
@@ -15,10 +15,20 @@ const ContactContainer = styled('div')`
 `;
 
 const ContactContent = styled('div')`
-  width: 100%;
-  @media ${device.mobileL} {
-    width: 70%;
-  }
+  margin-bottom: 16px;
+  max-width: 600px;
+`;
+
+const ContactGrid = styled(Grid)`
+  padding: 0;
+`;
+
+const ContactCell = styled(GridCell)`
+  padding: 8px;
+`;
+
+const AddressTitle = styled(Typography)`
+  margin: 0;
 `;
 
 const AddressText = styled(Typography)`
@@ -26,12 +36,10 @@ const AddressText = styled(Typography)`
   max-width: 320px;
 `;
 
-const ContactHeader = styled.div`
-  margin: 24px;
-`
-
-const ContactText = styled(Typography)`
-  margin: 0;
+const LinkText = styled('a')`
+  text-decoration: none;
+  display: block;
+  color: var(--mdc-theme-secondary, #018786)
 `;
 
 const Map = styled('iframe')`
@@ -47,76 +55,33 @@ class ContactComponent extends React.Component {
         </Typography>
 
         <ContactContent>
-          <ContactHeader>
-            <ContactText use="headline6" theme="secondary" tag="h2">
-              BENSON LIM
-            </ContactText>
-            <a href="tel:601-6660-5511">
-              <ContactText use="subtitle1" theme="secondary" tag="p">
-                +601 6660 5511
-              </ContactText>
-            </a>
-          </ContactHeader>
-          <Grid>
-            <GridCell span={12}>
-              <Typography use="headline6" theme="on-primary" tag="h2">
-                Ebony Houzz Sdn Bhd
-              </Typography>
-            </GridCell>
-            <GridCell span={2}>
-              <ContactText use="body1" theme="on-primary" tag="p">
-                Factory:
-              </ContactText>
-            </GridCell>
-            <GridCell span={10}>
+          <ContactGrid>
+            <ContactCell phone={4} tablet={4} desktop={6}>
+              <AddressTitle use="headline6" theme="on-primary" tag="h2">
+                Factory & Showroom:
+              </AddressTitle>
               <AddressText use="body1" theme="on-primary" tag="p">
-                Lot 2188, Industrial Estate Selangor Taming Jaya,
-                Jalan Taming 2, Taming Jaya Industry Park,
-                43300 Balakong, Selangor Darul Ehsan,
-                Malaysia.
+                Lot 2188, Industrial Estate Selangor Taming Jaya, Jalan Taming
+                2, Taming Jaya Industry Park, 43300 Balakong, Selangor Darul
+                Ehsan, Malaysia.
               </AddressText>
-            </GridCell>
-            <GridCell span={2}>
-              <ContactText use="body1" theme="on-primary" tag="p">
+            </ContactCell>
+
+            <ContactCell phone={4} tablet={4} desktop={6}>
+              <AddressTitle use="headline6" theme="on-primary" tag="h2">
                 Email:
-              </ContactText>
-            </GridCell>
-            <GridCell span={10}>
-              <a href="mailto:inquiry@ebonyhouzz.com">
-                <ContactText use="body1" theme="secondary" tag="p">
-                  inquiry@ebonyhouzz.com
-                </ContactText>
-              </a>
-            </GridCell>
-            <GridCell span={2}>
-              <ContactText use="body1" theme="on-primary" tag="p">
+              </AddressTitle>
+              <LinkText href="mailto:inquiry@ebonyhouzz.com">
+                inquiry@ebonyhouzz.com
+              </LinkText>
+              <AddressTitle use="headline6" theme="on-primary" tag="h2">
                 Call Us:
-              </ContactText>
-            </GridCell>
-            <GridCell span={10}>
-              <a href="tel:603-8961-2579">
-                <ContactText use="body1" theme="on-primary" tag="p">
-                  +603 8961 2579
-                </ContactText>
-              </a>
-            </GridCell>
-            <GridCell span={2} />
-            <GridCell span={10}>
-              <a href="tel:6016-660-5511">
-                <ContactText use="body1" theme="on-primary" tag="p">
-                  +6016 660 5511
-                </ContactText>
-              </a>
-            </GridCell>
-            <GridCell span={2} />
-            <GridCell span={10}>
-              <a href="tel:6017-806-2228">
-                <ContactText use="body1" theme="on-primary" tag="p">
-                  +6017 806 2228
-                </ContactText>
-              </a>
-            </GridCell>
-          </Grid>
+              </AddressTitle>
+              <LinkText href="tel:603-8961-2579">+603 8961 2579</LinkText>
+              <LinkText href="tel:6016-660-5511">+6016 660 5511</LinkText>
+              <LinkText href="tel:6017-806-2228">+6017 806 2228</LinkText>
+            </ContactCell>
+          </ContactGrid>
         </ContactContent>
 
         <Map
